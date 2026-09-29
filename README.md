@@ -1,3 +1,6 @@
+## 📸 Aperçu
+
+![SmellEngine demo](smellEngine.gif)
 # SmellEngine
 
 Système d'olfaction artificielle en temps réel pour jeux vidéo, films et vidéos.
