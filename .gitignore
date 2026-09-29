@@ -1,0 +1,44 @@
+# Моделі
+*.pt
+*.pth
+*.onnx
+*.h5
+*.ckpt
+*.safetensors
+weights/
+models/
+
+# Великі дані
+*.zip
+*.tar
+*.tar.gz
+*.7z
+GDataset.ipynb        # якщо там дані з output
+
+# Кеш / артефакти
+build/
+dist/
+*.toc
+base_library.zip
+*.pyc
+__pycache__/
+venv/
+node_modules/
+
+# Tauri compiled binaries
+src-tauri/bin/
+src-tauri/target/
+src-tauri/gen/
+
+# Тестові файли / артефакти
+*.jpg
+*.jpeg
+*.png
+!src/assets/*.png
+!src-tauri/icons/*.png
+!public/*.png
+
+# Root тести
+test.jpg
+captured_screen.jpg
+EOF
