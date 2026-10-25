@@ -62,27 +62,27 @@ flowchart TD
 
 ## Key Features
 
-- ** Native Low-Latency Capture**:
+- **Native Low-Latency Capture**:
   - Isolated window capture via macOS `screencapture -l<window_id> -x` (silent, zero-overlay interference).
   - High-speed desktop screen capture via `mss`.
   - Dynamic macOS window enumeration via `AppKit` and `Quartz` (`CGWindowListCopyWindowInfo`).
-- ** Dual Computer Vision Pipeline**:
+- **Dual Computer Vision Pipeline**:
   - **YOLO-World (ONNX Runtime)**: Real-time detection of open-vocabulary objects and terrain elements (fire, smoke, water, waves, trees, asphalt, soil, rain, vehicles) with pixel-bounding boxes and surface area tracking.
   - **CLIP (Contrastive Language-Image Pre-Training, ONNX Runtime)**: Zero-shot environmental classification utilizing paired positive/negative contrastive prompts with pre-computed text embeddings for near-instant inference.
   - **SegFormer (ONNX Runtime)**: Semantic landscape segmentation module for granular pixel-level surface area calculations.
-- ** Intelligent Scent Synthesis (`RuntimeSmellEngine`)**:
+- **Intelligent Scent Synthesis (`RuntimeSmellEngine`)**:
   - **Exponential Moving Average (EMA)** smoothing ($\alpha = 0.35 - 0.5$) prevents jarring scent transitions and olfactory fatigue.
   - **Deadband change thresholding** ($> 5\%$) minimizes unnecessary hardware actuation.
   - **Top-N Cartridge Limiter**: Constrains diffusion to at most 3 simultaneous active scents to prevent olfactory dissonance.
   - **Multi-Format Output**: Exposes normalized floats (`[0.0, 1.0]`), percentages (`0–100%`), and 8-bit PWM values (`0–255`).
-- ** Cyberpunk Desktop Dashboard (Tauri v2 + React 19)**:
+- **Cyberpunk Desktop Dashboard (Tauri v2 + React 19)**:
   - Live annotated preview feed displaying bounding boxes, class labels, and telemetry HUD.
   - Live target window selector dropdown.
   - Real-time cartridge intensity gauges and active CLIP confidence metrics.
   - Sub-millisecond latency breakdowns (Capture, Detection, Classification, Total FPS).
   - Integrated runtime event logger.
   - Network-aware IP auto-detection for cross-device & mobile telemetry.
-- ** Hardware Ready (ESP32)**:
+- **Hardware Ready (ESP32)**:
   - Real-time WebSocket and serial-compatible PWM payload distribution for direct motor/ultrasonic atomizer control.
 
 ---
