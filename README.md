@@ -11,13 +11,14 @@
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=flat&logo=react&logoColor=black)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Platform](https://img.shields.io/badge/Platform-macOS-lightgrey?style=flat&logo=apple&logoColor=black)](#prerequisites)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
+
 
 </div>
 
 ---
 
-## 📌 Overview
+## Overview
 
 **SmellEngine** (internally known as `ai-scent`) is an intelligent real-time olfactory feedback system designed to immerse gamers and multimedia viewers by synthesizing physical aromas that match the visual scenery on screen.
 
@@ -27,7 +28,7 @@ By combining low-latency screen/window capture, state-of-the-art vision models (
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
 ```mermaid
 flowchart TD
@@ -59,34 +60,34 @@ flowchart TD
 
 ---
 
-## ✨ Key Features
+## Key Features
 
-- **⚡ Native Low-Latency Capture**:
+- ** Native Low-Latency Capture**:
   - Isolated window capture via macOS `screencapture -l<window_id> -x` (silent, zero-overlay interference).
   - High-speed desktop screen capture via `mss`.
   - Dynamic macOS window enumeration via `AppKit` and `Quartz` (`CGWindowListCopyWindowInfo`).
-- **🧠 Dual Computer Vision Pipeline**:
+- ** Dual Computer Vision Pipeline**:
   - **YOLO-World (ONNX Runtime)**: Real-time detection of open-vocabulary objects and terrain elements (fire, smoke, water, waves, trees, asphalt, soil, rain, vehicles) with pixel-bounding boxes and surface area tracking.
   - **CLIP (Contrastive Language-Image Pre-Training, ONNX Runtime)**: Zero-shot environmental classification utilizing paired positive/negative contrastive prompts with pre-computed text embeddings for near-instant inference.
   - **SegFormer (ONNX Runtime)**: Semantic landscape segmentation module for granular pixel-level surface area calculations.
-- **🧪 Intelligent Scent Synthesis (`RuntimeSmellEngine`)**:
+- ** Intelligent Scent Synthesis (`RuntimeSmellEngine`)**:
   - **Exponential Moving Average (EMA)** smoothing ($\alpha = 0.35 - 0.5$) prevents jarring scent transitions and olfactory fatigue.
   - **Deadband change thresholding** ($> 5\%$) minimizes unnecessary hardware actuation.
   - **Top-N Cartridge Limiter**: Constrains diffusion to at most 3 simultaneous active scents to prevent olfactory dissonance.
   - **Multi-Format Output**: Exposes normalized floats (`[0.0, 1.0]`), percentages (`0–100%`), and 8-bit PWM values (`0–255`).
-- **🖥️ Cyberpunk Desktop Dashboard (Tauri v2 + React 19)**:
+- ** Cyberpunk Desktop Dashboard (Tauri v2 + React 19)**:
   - Live annotated preview feed displaying bounding boxes, class labels, and telemetry HUD.
   - Live target window selector dropdown.
   - Real-time cartridge intensity gauges and active CLIP confidence metrics.
   - Sub-millisecond latency breakdowns (Capture, Detection, Classification, Total FPS).
   - Integrated runtime event logger.
   - Network-aware IP auto-detection for cross-device & mobile telemetry.
-- **🔌 Hardware Ready (ESP32)**:
+- ** Hardware Ready (ESP32)**:
   - Real-time WebSocket and serial-compatible PWM payload distribution for direct motor/ultrasonic atomizer control.
 
 ---
 
-## 🌸 Scent Palette & Mapping Matrix
+## Scent Palette & Mapping Matrix
 
 The engine maps environmental triggers across **6 physical fragrance cartridges**:
 
@@ -101,7 +102,7 @@ The engine maps environmental triggers across **6 physical fragrance cartridges*
 
 ---
 
-## 🗂️ Project Structure
+## Project Structure
 
 ```text
 ai-scent/
@@ -137,7 +138,7 @@ ai-scent/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -264,7 +265,7 @@ Connect to `ws://localhost:8000/ws` to receive real-time JSON frames at each cap
 
 ---
 
-## 🛠️ Production Build & Packaging
+## Production Build & Packaging
 
 To compile a self-contained production desktop application:
 
@@ -298,7 +299,7 @@ To compile a self-contained production desktop application:
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 **Daniil Zhdanov**  
 *Master 1 IAFA — Université Paul Sabatier (Toulouse, France)*
@@ -309,12 +310,7 @@ To compile a self-contained production desktop application:
 
 ---
 
-## 📄 License
-
-This project is open-source and distributed under the [MIT License](LICENSE).
----
-
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -354,7 +350,7 @@ This project is open-source and distributed under the [MIT License](LICENSE).
 
 ---
 
-## 🏃 Running the Application
+## Running the Application
 
 ### Option 1: Full Desktop Application (Recommended)
 
@@ -387,7 +383,7 @@ npm run dev
 
 ---
 
-## 📡 Backend API Reference
+## Backend API Reference
 
 The FastAPI backend exposes both a RESTful interface and a duplex WebSocket connection on port `8000`.
 
@@ -461,7 +457,7 @@ To compile a self-contained production desktop application:
 
 ---
 
-## 🗺️ Roadmap
+## Roadmap
 
 - [x] Dual Vision Pipeline integration (YOLO-World + CLIP ONNX)
 - [x] Native macOS Quartz window & display capture
@@ -475,17 +471,4 @@ To compile a self-contained production desktop application:
 
 ---
 
-## 👨‍💻 Author
 
-**Daniil Zhdanov**  
-*Master 1 IAFA — Université Paul Sabatier (Toulouse, France)*
-
-- **GitHub**: [@yeezysmem](https://github.com/yeezysmem)
-- **LinkedIn**: [Daniil Zhdanov](https://www.linkedin.com/in/zhdanov-dan/)
-- **Email**: [d.zhdanov.dev@gmail.com](mailto:d.zhdanov.dev@gmail.com)
-
----
-
-## 📄 License
-
-This project is open-source and distributed under the [MIT License](LICENSE).
